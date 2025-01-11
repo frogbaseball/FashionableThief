@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 public class CitizenStateMachine : MonoBehaviour {
     private State currentState;
     [SerializeField] private GameObject raycastsGameObject;
@@ -9,8 +10,11 @@ public class CitizenStateMachine : MonoBehaviour {
     [SerializeField] private float maxSuspision;
     [SerializeField] NPCRaycast citizenRaycastScript;
     [SerializeField] GuardCaller guardCallerScript;
+    [SerializeField] NavMeshAgent agent;
     void Start() {
-        currentState = new WanderState(transform, pointsToWalkBetween, speed, raycastsGameObject.transform, citizenRaycastScript, maxSuspision, guardCallerScript);
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        currentState = new WanderState(agent, transform, pointsToWalkBetween, speed, raycastsGameObject.transform, citizenRaycastScript, maxSuspision, guardCallerScript);
         currentState.InitState();
     }
     void Update() {

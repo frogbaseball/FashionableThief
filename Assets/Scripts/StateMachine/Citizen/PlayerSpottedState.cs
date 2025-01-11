@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 public class PlayerSpottedState : State {
     private GuardCaller guardCallerScript;
     private Vector3 positionToCallTo;
@@ -13,7 +14,7 @@ public class PlayerSpottedState : State {
     Transform wanderRaycastsTransform;
     float wanderMaxSuspision;
     float wanderSpeed;
-    public PlayerSpottedState(GuardCaller guardCallerScript, int lastPos, NPCRaycast citizenRaycastScript, Transform wanderTransform, Vector2[] wanderPTWB, Transform wanderRaycastsTransform, float wanderMaxSuspision, float speed) : base() { 
+    public PlayerSpottedState(NavMeshAgent navMeshAgent, GuardCaller guardCallerScript, int lastPos, NPCRaycast citizenRaycastScript, Transform wanderTransform, Vector2[] wanderPTWB, Transform wanderRaycastsTransform, float wanderMaxSuspision, float speed) : base(navMeshAgent) { 
         this.guardCallerScript = guardCallerScript;
         positionToCallTo = citizenRaycastScript.PlayerPosition;
         this.citizenRaycastScript = citizenRaycastScript;
@@ -29,7 +30,7 @@ public class PlayerSpottedState : State {
     }
     public override State TryToChangeState() {
         if (!citizenRaycastScript.IsPlayerDetected)
-            return new WanderState(wanderTransform, wanderPTWB, lastPos, false, wanderSpeed, wanderRaycastsTransform, citizenRaycastScript, wanderMaxSuspision, guardCallerScript);
+            return new WanderState(navMeshAgent, wanderTransform, wanderPTWB, lastPos, wanderSpeed, wanderRaycastsTransform, citizenRaycastScript, wanderMaxSuspision, guardCallerScript);
         return this;
     }
     public override void UpdateState() {

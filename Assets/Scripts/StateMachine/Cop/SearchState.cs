@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 public class SearchState : State {
     private Vector2[] locationsToSearch;
     private Vector3 currentDestination;
@@ -8,7 +9,7 @@ public class SearchState : State {
     private Transform transform;
     private Transform raycastsTransform;
     private float speed;
-    public SearchState(Vector3 location, Vector2[] locationsToSearch, Transform transform, Transform raycastsTransform, float speed, NPCRaycast copRaycastScript) : base() { 
+    public SearchState(NavMeshAgent navMeshAgent, Vector3 location, Vector2[] locationsToSearch, Transform transform, Transform raycastsTransform, float speed, NPCRaycast copRaycastScript) : base(navMeshAgent) { 
         currentDestination = location;
         this.locationsToSearch = locationsToSearch;
         this.transform = transform;
@@ -17,18 +18,19 @@ public class SearchState : State {
         this.copRaycastScript = copRaycastScript;
     }
     public override void InitState() {
-        return;
+        navMeshAgent.speed = speed;
+        currentDestination = ChangeDestination();
+        navMeshAgent.SetDestination(currentDestination);
     }
     public override State TryToChangeState() {
         if (copRaycastScript.IsPlayerDetected)
-            return new CatchPlayerState(copRaycastScript.Player, transform, raycastsTransform, speed);
+            return new CatchPlayerState(navMeshAgent, copRaycastScript.Player, speed);
         return this;
     }
     public override void UpdateState() {
-        transform.position = Vector3.MoveTowards(transform.position, currentDestination, Time.deltaTime * speed);
-        raycastsTransform.right = currentDestination - transform.position;
-        if (Mathf.Abs(Vector3.Distance(transform.position, currentDestination)) <= 1) {
+        if (Mathf.Abs(Vector3.Distance(transform.position, currentDestination)) <= 0.7) {
             currentDestination = ChangeDestination();
+            navMeshAgent.SetDestination(currentDestination);
         }
     }
     private Vector3 ChangeDestination() {

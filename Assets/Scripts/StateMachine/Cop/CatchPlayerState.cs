@@ -1,19 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 public class CatchPlayerState : State {
     private GameObject player;
-    private Transform transform;
-    private Transform raycastsTransform;
     private float speed;
-    public CatchPlayerState(GameObject player, Transform transform, Transform raycastsTransform, float speed) : base() {
+    public CatchPlayerState(NavMeshAgent navMeshAgent, GameObject player, float speed) : base(navMeshAgent) {
         this.player = player;
-        this.transform = transform;
-        this.raycastsTransform = raycastsTransform;
         this.speed = speed;
     }
     public override void InitState() {
-        return;
+        navMeshAgent.speed = speed;
     }
 
     public override State TryToChangeState() {
@@ -21,7 +18,6 @@ public class CatchPlayerState : State {
     }
 
     public override void UpdateState() {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * speed);
-        raycastsTransform.right = player.transform.position - transform.position;
+        navMeshAgent.SetDestination(player.transform.position);
     }
 }
