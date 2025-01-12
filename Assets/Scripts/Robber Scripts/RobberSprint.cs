@@ -22,7 +22,7 @@ public class RobberSprint : MonoBehaviour {
     private void Update() {
         if (cooldownLength <= 0 && sprint < maxSprint)
             sprint += Time.deltaTime;
-        if (Input.GetKey(KeyCode.LeftShift) && sprint > 0) {
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && sprint > 0) {
             robberMovementScript.ChangeSpeedTo(speedWhileSprinting);
             sprint -= Time.deltaTime;
             cooldownLength = defaultCooldownLength;
