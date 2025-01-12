@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 public class CopStateMachine : MonoBehaviour {
-    private State currentState;
+    private State currentState = null;
+    public State CurrentState { get { return currentState; } }
     [SerializeField] private Vector2[] locationsToSearch;
     [SerializeField] private float speed;
     [SerializeField] private Transform raycastsTransform;

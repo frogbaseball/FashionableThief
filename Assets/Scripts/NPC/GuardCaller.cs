@@ -10,7 +10,10 @@ public class GuardCaller : MonoBehaviour {
         if (cops == null)
             CallCopsToPlace();
         for (int i = 0; i < cops.Length; i++) {
-            cops[i].GetComponent<CopStateMachine>().CallToLocation(position);
+            if (cops[i].GetComponent<CopStateMachine>().CurrentState == null)
+                cops[i].GetComponent<CopStateMachine>().CallToLocation(position);
+            else if (cops[i].GetComponent<CopStateMachine>().CurrentState.ToString() == "CatchPlayerState")
+                Debug.Log(cops[i].GetComponent<CopStateMachine>().CurrentState.ToString());
         }
     }
     public void CallCopsToPlace() {

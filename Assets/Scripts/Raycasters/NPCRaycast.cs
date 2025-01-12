@@ -13,38 +13,22 @@ public class NPCRaycast : MonoBehaviour {
     private Vector3 playerPosition;
     private GameObject player;
     private Vector3 direction;
+    private Direction2D direction2D;
     public bool IsPlayerDetected { get { return playerDetected; } }
     public Vector3 PlayerPosition { get { return playerPosition; } }
     public GameObject Player {  get { return player; } }
     private void Start() {
         agent = GetComponentInParent<NavMeshAgent>();
     }
-    private Vector3 directionX, directionY;
     private void Update() {
-        if (agent.velocity.x < 0) {
-            directionX = Vector3.left;
-        } else if (agent.velocity.x > 0) {
-            directionX = Vector3.right;
-        }
-        if (agent.velocity.x >= -0.04 && agent.velocity.x <= 0.04) {
-            directionX = Vector3.zero;
-        }
-        if (agent.velocity.y >= -0.04 && agent.velocity.y <= 0.04) {
-            directionY = Vector3.zero;
-        }
-        if (agent.velocity.y < 0) {
-            directionY = Vector3.down;
-        } else if (agent.velocity.y > 0) {
-            directionY = Vector3.up;
-        }
+        direction2D = new Direction2D(agent.velocity.x, agent.velocity.y);
         if (agent.isStopped != true)
-            direction = directionX + directionY;
+            direction = direction2D.Direction;
         else
             direction = player.transform.position - transform.position;
     }
     private void FixedUpdate() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 20f, layer);
-        Debug.Log(hit.transform.position);
         if (playerDetected != true)
             transform.rotation = Quaternion.LookRotation(agent.velocity);
         else

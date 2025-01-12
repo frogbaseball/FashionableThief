@@ -4,10 +4,11 @@ using UnityEngine;
 public class RobberHat : MonoBehaviour {
     private Hat currentHat;
     public string HatName { get { return currentHat.HatName; } }
+    public string HatPath { get { return currentHat.HatPath; } }
+    private void Start() {
+        currentHat = new Hat("Head", "");
+    }
     public void ChangeHat(Hat newHat) {
         currentHat = newHat;
-    }
-    private void Update() {
-        Debug.Log(currentHat.HatName);
     }
 }

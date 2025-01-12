@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5008552239487857706}
   - component: {fileID: 4491276259663028276}
   - component: {fileID: 1696181530222293666}
+  - component: {fileID: -5285019850984483438}
   - component: {fileID: 8312829193937201660}
   - component: {fileID: 668239788772283227}
   m_Layer: 7
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4303813, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 288012694, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,10 +108,27 @@ MonoBehaviour:
   - {x: 5, y: -3}
   - {x: 5, y: 3}
   speed: 2
-  maxSuspision: 5
+  maxSuspision: 3
   citizenRaycastScript: {fileID: 3965042786186550297}
   guardCallerScript: {fileID: 0}
-  navMeshAgent: {fileID: 8312829193937201660}
+  agent: {fileID: 8312829193937201660}
+--- !u!114 &-5285019850984483438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578236293261882339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb802176bf402542a8d954a8fd55d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1019302260, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
+  - {fileID: 724234081, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
+  - {fileID: 1174432914, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
+  - {fileID: 288012694, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
 --- !u!195 &8312829193937201660
 NavMeshAgent:
   m_ObjectHideFlags: 0
