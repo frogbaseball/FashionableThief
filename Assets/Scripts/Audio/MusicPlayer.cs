@@ -6,6 +6,8 @@ public class MusicPlayer : MonoBehaviour {
     private AudioSource audioSource;
     private void Start() {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefs.GetFloat("Volume");
+        PlayMusic(0);
     }
     public void PlayMusic(int index) {
         audioSource.loop = false;
@@ -19,5 +21,11 @@ public class MusicPlayer : MonoBehaviour {
     }
     public void StopMusic() {
         audioSource.Stop();
+    }
+    public void PauseMusic() {
+        audioSource.Pause();
+    }
+    public void UnPauseMusic() {
+        audioSource.UnPause();
     }
 }

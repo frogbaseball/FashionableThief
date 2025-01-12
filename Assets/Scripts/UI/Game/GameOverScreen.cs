@@ -13,6 +13,7 @@ public class GameOverScreen : MonoBehaviour {
         text.text = gameOverPossibleEndings[index];
     }
     public void BackToMenu() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
 }

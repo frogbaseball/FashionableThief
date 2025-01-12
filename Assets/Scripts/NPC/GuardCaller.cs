@@ -7,9 +7,12 @@ public class GuardCaller : MonoBehaviour {
     [SerializeField] private Vector3 callPosition;
     [SerializeField] private int copsAmount;
     [SerializeField] private GameOverScreen gameOverScreen;
+    [SerializeField] private MusicPlayer musicPlayer;
     public void CallAllGuardsToPosition(Vector3 position) {
-        if (cops == null)
+        if (cops == null) {
+            musicPlayer.PlayMusic(1);
             CallCopsToPlace();
+        }
         for (int i = 0; i < cops.Length; i++) {
             if (cops[i].GetComponent<CopStateMachine>().CurrentState == null)
                 cops[i].GetComponent<CopStateMachine>().CallToLocation(position);

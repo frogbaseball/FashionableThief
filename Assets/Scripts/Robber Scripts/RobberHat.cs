@@ -11,7 +11,4 @@ public class RobberHat : MonoBehaviour {
     public void ChangeHat(Hat newHat) {
         currentHat = newHat;
     }
-    private void Update() {
-        Debug.Log(currentHat.HatName);
-    }
 }

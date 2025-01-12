@@ -11,6 +11,8 @@ public class RobberSprint : MonoBehaviour {
     [SerializeField] private float defaultCooldownLength; //cooldown for when can his sprint refill while not sprinting
     private float cooldownLength = 0;
     private float sprint;
+    public float Sprint { get { return sprint; } }
+    public float MaxSprint { get { return maxSprint; } }
     private void Start() {
         if (robberMovementScript == null)
             robberMovementScript = gameObject.GetComponent<RobberMovement>();

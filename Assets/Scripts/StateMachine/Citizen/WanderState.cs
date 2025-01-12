@@ -51,6 +51,7 @@ public class WanderState : State {
         return this;
     }
     public override void UpdateState() {
+        playerDetectionScript.Suspision = suspision;
         if (playerDetectionScript.IsPlayerDetected)
             navMeshAgent.isStopped = true;
         else

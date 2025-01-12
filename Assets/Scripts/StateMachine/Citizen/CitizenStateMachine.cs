@@ -8,14 +8,13 @@ public class CitizenStateMachine : MonoBehaviour {
     [SerializeField] private Vector2[] pointsToWalkBetween;
     [SerializeField] private float delay;
     [SerializeField] private float speed;
-    [SerializeField] private float maxSuspision;
     [SerializeField] NPCRaycast citizenRaycastScript;
     [SerializeField] GuardCaller guardCallerScript;
     [SerializeField] NavMeshAgent agent;
     void Start() {
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        currentState = new WanderState(agent, transform, pointsToWalkBetween, speed, delay, raycastsGameObject.transform, citizenRaycastScript, maxSuspision, guardCallerScript);
+        currentState = new WanderState(agent, transform, pointsToWalkBetween, speed, delay, raycastsGameObject.transform, citizenRaycastScript, citizenRaycastScript.MaxSuspision, guardCallerScript);
         currentState.InitState();
     }
     void Update() {
