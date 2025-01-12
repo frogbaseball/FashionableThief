@@ -7,19 +7,16 @@ public class SearchState : State {
     private Vector3 currentDestination;
     private NPCRaycast copRaycastScript;
     private Transform transform;
-    private Transform raycastsTransform;
     private float speed;
     public SearchState(NavMeshAgent navMeshAgent, Vector3 location, Vector2[] locationsToSearch, Transform transform, Transform raycastsTransform, float speed, NPCRaycast copRaycastScript) : base(navMeshAgent) { 
         currentDestination = location;
         this.locationsToSearch = locationsToSearch;
         this.transform = transform;
-        this.raycastsTransform = raycastsTransform;
         this.speed = speed;
         this.copRaycastScript = copRaycastScript;
     }
     public override void InitState() {
         navMeshAgent.speed = speed;
-        currentDestination = ChangeDestination();
         navMeshAgent.SetDestination(currentDestination);
     }
     public override State TryToChangeState() {

@@ -5,9 +5,6 @@ using UnityEngine.AI;
 public class CatchPlayerState : State {
     private GameObject player;
     private float speed;
-    public CatchPlayerState(NavMeshAgent navMeshAgent) : base(navMeshAgent) {
-
-    }
     public CatchPlayerState(NavMeshAgent navMeshAgent, GameObject player, float speed) : base(navMeshAgent) {
         this.player = player;
         this.speed = speed;

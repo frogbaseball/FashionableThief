@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 public class CopStateMachine : MonoBehaviour {
+    public UnityEvent gameOverEvent;
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.GetComponent<RobberHat>() != null)
+            gameOverEvent.Invoke();
+    }
     private State currentState = null;
     public State CurrentState { get { return currentState; } }
     [SerializeField] private Vector2[] locationsToSearch;

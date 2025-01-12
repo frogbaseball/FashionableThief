@@ -13,12 +13,6 @@ public struct Direction2D {
         else if (x > 0) {
             DirectionX = Vector3.right;
         }
-        if (x >= -0.04 && x <= 0.04) {
-            DirectionX = Vector3.zero;
-        }
-        if (y >= -0.04 && y <= 0.04) {
-            DirectionY = Vector3.zero;
-        }
         if (y < 0) {
             DirectionY = Vector3.down;
         }

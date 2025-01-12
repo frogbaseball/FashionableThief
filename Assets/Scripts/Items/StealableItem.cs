@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StealableItem : MonoBehaviour {
     [SerializeField] private string item;
-    [SerializeField] private Hat requiredHat;
+    [SerializeField] private string requiredHat;
     private bool isPlayerNearItem = false;
     private RobberHat robberHatScript;
     private RobberItems robberItemsScript;
@@ -19,7 +19,7 @@ public class StealableItem : MonoBehaviour {
         isPlayerNearItem = false;
     }
     private void Update() {
-        if (isPlayerNearItem && Input.GetKey(KeyCode.E) && requiredHat.HatName == robberHatScript.HatName) {
+        if (isPlayerNearItem && Input.GetKey(KeyCode.E) && requiredHat == robberHatScript.HatName) {
             robberItemsScript.AddItem(item);
             Destroy(gameObject);
         }

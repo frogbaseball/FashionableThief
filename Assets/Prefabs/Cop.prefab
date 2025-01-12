@@ -104,8 +104,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0649347951ce3cf429f25976b3d1cf35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverEvent:
+    m_PersistentCalls:
+      m_Calls: []
   locationsToSearch:
-  - {x: 0, y: 0}
+  - {x: 2, y: -28}
+  - {x: 18, y: -21}
+  - {x: 3, y: -9}
+  - {x: -21, y: -20}
+  - {x: -11, y: -22}
+  - {x: 0, y: -34}
   speed: 5
   raycastsTransform: {fileID: 1820388474846862599}
   copRaycastScript: {fileID: 1081351788973699940}
@@ -128,6 +136,7 @@ MonoBehaviour:
   - {fileID: -3077275685710295902, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
   - {fileID: -4945747115165259674, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
   isPlayer: 0
+  spriteRendererHat: {fileID: 0}
 --- !u!61 &401257099194994668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,7 +171,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0012146235, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -172,7 +181,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.37573218, y: 1}
   m_EdgeRadius: 0
 --- !u!195 &1099875669803777906
 NavMeshAgent:

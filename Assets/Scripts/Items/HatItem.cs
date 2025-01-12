@@ -4,7 +4,7 @@ using UnityEngine;
 public class HatItem : MonoBehaviour {
     private Hat hat;
     [SerializeField] private string hatName;
-    [SerializeField] private string hatPath;
+    [SerializeField] private Sprite hatSprite;
     private bool isPlayerNearItem = false;
     private RobberHat robberHatScript;
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -21,6 +21,6 @@ public class HatItem : MonoBehaviour {
             robberHatScript.ChangeHat(hat);
     }
     private void Start() {
-        hat = new Hat(hatName, hatPath);
+        hat = new Hat(hatName, hatSprite);
     }
 }

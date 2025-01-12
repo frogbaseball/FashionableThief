@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public struct Hat {
     private string hatName;
-    private string hatPath;
+    private Sprite sprite;
     public string HatName { get { return hatName; } }
-    public string HatPath {  get { return hatPath; } }
-    public Hat(string name, string hatPath) {
+    public Sprite Sprite { get { return sprite; } }
+    public Hat(string name, Sprite sprite) {
         this.hatName = name;
-        this.hatPath = hatPath;
+        this.sprite = sprite;
     }
 }

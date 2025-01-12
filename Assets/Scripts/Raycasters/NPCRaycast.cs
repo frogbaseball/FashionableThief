@@ -26,13 +26,11 @@ public class NPCRaycast : MonoBehaviour {
             direction = direction2D.Direction;
         else
             direction = player.transform.position - transform.position;
+        Debug.Log(direction);
     }
     private void FixedUpdate() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 20f, layer);
-        if (playerDetected != true)
-            transform.rotation = Quaternion.LookRotation(agent.velocity);
-        else
-            transform.rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.LookRotation(direction);
         try {
             if (hit.collider.GetComponent<RobberHat>() == null) {
                 playerDetected = false;
