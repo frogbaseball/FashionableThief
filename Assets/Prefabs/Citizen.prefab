@@ -218,6 +218,7 @@ MonoBehaviour:
   - {fileID: 288012694, guid: 07673814fd946c049b3b87da305b3d2f, type: 3}
   isPlayer: 0
   spriteRendererHat: {fileID: 0}
+  isCitizen: 1
 --- !u!195 &8312829193937201660
 NavMeshAgent:
   m_ObjectHideFlags: 0

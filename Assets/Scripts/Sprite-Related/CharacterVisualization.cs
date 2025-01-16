@@ -12,6 +12,7 @@ public class CharacterVisualization : MonoBehaviour {
     private Vector3 direction, directionX, directionY;
     private Sprite hat;
     private bool isWearingHat = false;
+    [SerializeField] private bool isCitizen = false;
     private float x, y;
     private void Start() {
         if (isPlayer) {
@@ -38,8 +39,13 @@ public class CharacterVisualization : MonoBehaviour {
             else if (direction == Vector3.down)
                 spriteRenderer.sprite = sprites[3];
         } else {
-            x = agent.velocity.x;
-            y = agent.velocity.y;
+            if (isCitizen) {
+                x = gameObject.GetComponentInChildren<NPCRaycast>().Direction.x;
+                y = gameObject.GetComponentInChildren<NPCRaycast>().Direction.y;
+            } else {
+                x = agent.velocity.x;
+                y = agent.velocity.y;
+            }
             directionX = new Direction2D(x, y).DirectionX;
             directionY = new Direction2D(x, y).DirectionY;
             if (directionX == Vector3.left)

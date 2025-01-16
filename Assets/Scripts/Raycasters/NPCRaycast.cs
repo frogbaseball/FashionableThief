@@ -19,6 +19,7 @@ public class NPCRaycast : MonoBehaviour {
     private Vector3 direction;
     private Direction2D direction2D;
     public float Suspision;
+    public Vector3 Direction { get { return direction; } }
     public bool IsPlayerDetected { get { return playerDetected; } }
     public Vector3 PlayerPosition { get { return playerPosition; } }
     public GameObject Player {  get { return player; } }

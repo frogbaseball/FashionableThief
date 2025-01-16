@@ -8,17 +8,17 @@ public class RobberObjectives : MonoBehaviour {
     private Objective[] objectives;
     private void Start() {
         objectives = new Objective[5];
-        objectives[0] = new Objective(4, "Banana", "Chef_Hat");
-        objectives[1] = new Objective(7, "Painting", "Tophat");
-        objectives[2] = new Objective(1, "GoldChain", "Beret");
-        objectives[3] = new Objective(1, "Diamond", "Chef_Hat");
-        objectives[4] = new Objective(1, "Trophy", "Cowboy_Hat");
+        objectives[0] = new Objective(4, "Banana", "Chef_Hat", "Bananas", "a Chef hat");
+        objectives[1] = new Objective(7, "Painting", "Tophat", "Paintings", "a Tophat");
+        objectives[2] = new Objective(1, "GoldChain", "Beret", "Gold Chain", "a Beret");
+        objectives[3] = new Objective(1, "Diamond", "Chef_Hat", "Diamond", "a Chef hat");
+        objectives[4] = new Objective(1, "Trophy", "Cowboy_Hat", "Trophy", "a Cowboy hat");
         UpdateText();
     }
     public void UpdateText() {
         text.text = "";
         for (int i = 0; i < objectives.Length; i++) {
-            text.text += $"Steal {CountAmountInInventoryOfItem(objectives[i].itemName)}/{objectives[i].amountOnMap} {objectives[i].itemName} while wearing {objectives[i].hatName} \n";
+            text.text += $"Steal {CountAmountInInventoryOfItem(objectives[i].displayItemName)}/{objectives[i].amountOnMap} {objectives[i].itemName} while wearing {objectives[i].displayHatName} \n";
         }
     }
     private string CountAmountInInventoryOfItem(string itemName) {

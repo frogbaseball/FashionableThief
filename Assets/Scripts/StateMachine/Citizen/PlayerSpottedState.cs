@@ -28,7 +28,7 @@ public class PlayerSpottedState : State {
         this.delay = delay;
     }
     public override void InitState() {
-        guardCallerScript.CallAllGuardsToPosition(positionToCallTo);
+        return;
     }
     public override State TryToChangeState() {
         if (!citizenRaycastScript.IsPlayerDetected)
@@ -36,6 +36,7 @@ public class PlayerSpottedState : State {
         return this;
     }
     public override void UpdateState() {
-        return;
+        positionToCallTo = citizenRaycastScript.PlayerPosition;
+        guardCallerScript.CallAllGuardsToPosition(positionToCallTo);
     }
 }
