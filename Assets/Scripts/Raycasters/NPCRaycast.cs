@@ -38,7 +38,7 @@ public class NPCRaycast : MonoBehaviour {
                 suspisionLevel.GetComponent<SpriteRenderer>().sprite = suspisionSprites[0];
             }
         }
-        if (!agent.isStopped && (agent.desiredVelocity.x != 0 && agent.desiredVelocity.y != 0))
+        if (!agent.isStopped && (agent.desiredVelocity.x != 0 || agent.desiredVelocity.y != 0))
             direction2D = new Direction2D(agent.desiredVelocity.x, agent.desiredVelocity.y);
         if (!agent.isStopped)
             direction = direction2D.Direction;

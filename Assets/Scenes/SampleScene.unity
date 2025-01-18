@@ -329,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588177299}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.70723015}
   m_LocalPosition: {x: -0.42913425, y: 1.0139458, z: -0.0798473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -430,7 +430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1696181530222293666, guid: 7ae54739c083ec24a983a099c026e587, type: 3}
       propertyPath: delay
-      value: 9.22
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1696181530222293666, guid: 7ae54739c083ec24a983a099c026e587, type: 3}
       propertyPath: pointsToWalkBetween.Array.size

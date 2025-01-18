@@ -18,7 +18,7 @@ public class RobberObjectives : MonoBehaviour {
     public void UpdateText() {
         text.text = "";
         for (int i = 0; i < objectives.Length; i++) {
-            text.text += $"Steal {CountAmountInInventoryOfItem(objectives[i].displayItemName)}/{objectives[i].amountOnMap} {objectives[i].itemName} while wearing {objectives[i].displayHatName} \n";
+            text.text += $"Steal {CountAmountInInventoryOfItem(objectives[i].itemName)}/{objectives[i].amountOnMap} {objectives[i].displayItemName} while wearing {objectives[i].displayHatName} \n";
         }
     }
     private string CountAmountInInventoryOfItem(string itemName) {
